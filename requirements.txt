@@ -1,0 +1,9 @@
+Flask 
+Flask-SQLAlchemy 
+Flask-Migrate 
+Flask-RESTful 
+Flask-Admin 
+Flask-WTF 
+flask-ckeditor 
+redis 
+googletrans
