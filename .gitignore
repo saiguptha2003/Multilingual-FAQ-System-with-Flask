@@ -1,0 +1,55 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+
+# Virtual environment directory
+venv/
+env/
+
+# Docker files
+*.log
+*.pid
+*.db
+
+# Redis data (if using Redis for caching)
+*.rdb
+
+# Node modules (if using Node.js for frontend)
+node_modules/
+
+# Django migrations
+*/migrations/*
+
+# Flask instance folder (if any)
+instance/
+
+# Pytest cache
+.cache/
+
+# VS Code settings
+.vscode/
+
+# JetBrains IDE (PyCharm, IntelliJ) settings
+.idea/
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Coverage reports
+.coverage
+*.coveragerc
+
+# Build and distribution files
+build/
+dist/
+*.egg-info
+
+# PyInstaller
+*.spec

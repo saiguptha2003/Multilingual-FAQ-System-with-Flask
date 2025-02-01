@@ -9,7 +9,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+COPY .env .env
 
 EXPOSE 5000
 
-CMD ["python", "run.py"]
+CMD ["python", "app.py"]
