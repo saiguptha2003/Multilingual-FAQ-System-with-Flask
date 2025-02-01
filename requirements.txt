@@ -7,3 +7,10 @@ Flask-WTF
 flask-ckeditor 
 redis 
 googletrans
+bleach
+flask_caching
+flask-redis
+flask_cors
+python-dotenv
+requests
+boto3
