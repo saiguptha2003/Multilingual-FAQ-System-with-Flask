@@ -5,19 +5,19 @@
 
 
 ## Features
-### FAQ Management: Add FAQ entries.
-### Multilingual Support: Automatically translate FAQ questions and answers into multiple languages.
-### SQLAlchemy Integration: Store FAQ data in a relational database using SQLAlchemy.
-### REST API: Expose APIs to fetch FAQ data and handle translations.
+##### FAQ Management: Add FAQ entries.
+##### Multilingual Support: Automatically translate FAQ questions and## answers into multiple languages.
+##### SQLAlchemy Integration: Store FAQ data in a relational database using SQLAlchemy.
+##### REST API: Expose APIs to fetch FAQ data and handle translations.
 
 
 ## Technologies Used
 ### Flask: A lightweight WSGI web application framework for Python.
-### SQLAlchemy: ORM for database management.
-### Requests: For making HTTP requests to translation APIs.
-### JSON: Data exchange format for translating FAQ content.
-### Redis: Data caching server side
-### Docker : Container based development
+##### SQLAlchemy: ORM for database management.
+##### Requests: For making HTTP requests to translation APIs.
+##### JSON: Data exchange format for translating FAQ content.
+##### Redis: Data caching server side
+##### Docker : Container based development
 
 ## Installation
 ### Clone The Repository 
@@ -41,11 +41,11 @@ pip install -r requirements.txt
 
 ### Set up the environment variables:
 
-#### API_URL: The URL for your translation API.
-#### AWS_ACCESS_KEY: Your AWS access key for the translation service.
-#### AWS_SECRET_KEY: Your AWS secret key for the translation service.
-#### AWS_REGION: The AWS region for the service.
-#### SERVICE: The AWS service you are using for translation.
+##### API_URL: The URL for your translation API.
+##### AWS_ACCESS_KEY: Your AWS access key for the translation service.
+##### AWS_SECRET_KEY: Your AWS secret key for the translation service.
+##### AWS_REGION: The AWS region for the service.
+##### SERVICE: The AWS service you are using for translation.
 
 ```bash 
 python app.py
