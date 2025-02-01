@@ -12,3 +12,4 @@ class Config:
     AWS_SECRET_KEY=os.getenv("AWS>SECERT_KEY")
     AWS_REGION=os.getenv("AWS_REGION")
     SERVICE=os.getenv("SERVICE")
+    API_URL=os.getenv("API_URL")
