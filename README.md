@@ -60,17 +60,17 @@ docker-compose up --build -d
 
 ## API Endpoints
 
-### GET api/faqs: Fetch all FAQs.
-### POST api/faqs: Create a new FAQ.
-### FORM apifaqs/add_faq: Form for adding faq
-### GET api/faqs?lang=bn: Fetch All FAQs in given language 
+##### GET api/faqs: Fetch all FAQs.
+#####  POST api/faqs: Create a new FAQ.
+##### FORM apifaqs/add_faq: Form for adding faq
+##### GET api/faqs?lang=bn: Fetch All FAQs in given language 
 
 ## Database Schema
 #### The application uses SQLAlchemy for database interaction. The FAQ table schema is as follows:
 
-### id: Primary key (integer).
-## question: The FAQ question (string).
-## answer: The FAQ answer (text)
+##### id: Primary key (integer).
+##### question: The FAQ question (string).
+##### answer: The FAQ answer (text)
 
 ## Requests and Response
 ### GET api/faqs/?lang=te: Fetch all FAQs.
