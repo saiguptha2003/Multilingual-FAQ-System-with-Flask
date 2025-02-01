@@ -1,5 +1,3 @@
-# app/forms.py
-
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 from flask_ckeditor import CKEditorField
