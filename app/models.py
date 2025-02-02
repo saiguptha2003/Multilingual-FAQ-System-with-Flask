@@ -3,6 +3,8 @@ from flask_ckeditor import CKEditorField
 from sqlalchemy import Column, Integer, Text
 from flask import current_app as app, json
 import requests
+from bs4 import BeautifulSoup
+
 import json
 import logging
 from .config import Config
@@ -31,7 +33,7 @@ class FAQ(db.Model):
     def translate_faq(self, lang):
             payload = json.dumps({
                 "question": self.question,
-                "answer": self.answer,
+                "answer": BeautifulSoup(self.answer, "html.parser").get_text(),
                 "target_language": lang
             })
 
@@ -58,7 +60,7 @@ class FAQ(db.Model):
                 else:
                     return {
                         "question": self.question,
-                        "answer": self.answer,
+                        "answer": BeautifulSoup(self.answer, "html.parser").get_text(),
                         "response": response_faq.text
                     }
 
@@ -67,6 +69,6 @@ class FAQ(db.Model):
 
                 return {
                     "question": self.question,
-                    "answer": self.answer,
+                    "answer": BeautifulSoup(self.answer, "html.parser").get_text(),
                     "response": str(e)
                 }
