@@ -1,6 +1,5 @@
 from flask import Blueprint, request, jsonify,render_template,redirect,url_for,flash
 from .models import FAQ
-from .models import FAQ
 from app import db,redis
 
 from .forms import FAQForm
@@ -14,7 +13,9 @@ def get_faqs():
     faq_list = []
 
     for faq in faqs:
+
         question_translated = faq.translate_faq(lang)
+
         faq_list.append(
             question_translated
         )
@@ -54,3 +55,8 @@ def admin_add_faq():
         return redirect(url_for('faqsd.admin_add_faq'))
     return render_template('create_faq.jinja2', form=form)
 
+
+@bp.route("/get_faqs_WYSIWYG")
+def show_faqs():
+    faqs = FAQ.query.all()  
+    return render_template("get_faqs.jinja2", faqs=faqs)
