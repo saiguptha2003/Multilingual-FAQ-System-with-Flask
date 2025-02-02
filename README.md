@@ -202,7 +202,16 @@ http://localhost:5000/api/faqs/get_faqs_WYSIWYG
 5. if not then process the translations and returns the list and update the redis
 
 --
+
+## Testing 
+
+```bash
+cd app
+pytest test.py
+```
+
 ## Contact
 ### V D Panduranga Sai Guptha 
 ### 8688670712
 ### Saiguptha2003@gmail.com
+
