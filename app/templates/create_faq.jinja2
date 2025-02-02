@@ -2,6 +2,18 @@
 
 {% block content %}
     <h2>Add FAQ</h2>
+    
+    <!-- Language Selector -->
+    <label for="language-selector">Choose Language:</label>
+    <select id="language-selector" class="form-select">
+        <option value="en-US">English</option>
+        <option value="hi-IN">हिन्दी (Hindi)</option>
+        <option value="ta-IN">தமிழ் (Tamil)</option>
+        <option value="te-IN">తెలుగు (Telugu)</option>
+        <option value="bn-BD">বাংলা (Bengali)</option>
+        <option value="fr-FR">Français (French)</option>
+    </select>
+
     <form method="POST">
         {{ form.hidden_tag() }}
         
@@ -12,8 +24,53 @@
 
         <div class="mb-3">
             <label class="form-label">{{ form.answer.label }}</label>
-            {{ form.answer(class="form-control") }}
+            {{ form.answer(class="form-control", id="summernote") }}
         </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <!-- Include Summernote CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <!-- Load Language Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-hi-IN.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ta-IN.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-te-IN.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-bn-BD.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-fr-FR.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize Summernote with default language
+            $('#summernote').summernote({
+                height: 200,  
+                lang: 'en-US',  // Default to English
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview']]
+                ]
+            });
+
+            // Language change functionality
+            $('#language-selector').on('change', function() {
+                var selectedLang = $(this).val();
+                $('#summernote').summernote('destroy'); // Destroy the existing editor
+                $('#summernote').summernote({
+                    height: 200,
+                    lang: selectedLang,  // Set new language
+                    toolbar: [
+                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview']]
+                    ]
+                });
+            });
+        });
+    </script>
+
 {% endblock %}
