@@ -60,10 +60,16 @@ docker-compose up --build -d
 
 ## API Endpoints
 
-##### GET api/faqs: Fetch all FAQs.
-#####  POST api/faqs: Create a new FAQ.
-##### FORM apifaqs/add_faq: Form for adding faq
-##### GET api/faqs?lang=bn: Fetch All FAQs in given language 
+#### GET api/faqs                               
+###### Fetch all FAQs.
+####  POST api/faqs                             
+###### Create a new FAQ.
+#### GET api/faqs?lang=bn                       
+###### Fetch All FAQs in given language 
+#### Template GET api/faqs/get_faqs_WYSIWYG     
+###### Get the WYSIWYG text rendered with drop down of question and answer
+#### Template POST FORM apifaqs/add_faq         
+###### Form for adding faq
 
 ## Database Schema
 #### The application uses SQLAlchemy for database interaction. The FAQ table schema is as follows:
@@ -73,7 +79,9 @@ docker-compose up --build -d
 ##### answer: The FAQ answer (text)
 
 ## Requests and Response
+
 ### GET api/faqs/?lang=te: Fetch all FAQs.
+#### Description: This URL converts all FAQs into the specified language, removes all WYSIWYG formatting, and returns the FAQs in plain text format for better readability.
 #### URL
 ```json
 http://localhost:5000/api/faqs?lang=te
@@ -94,9 +102,8 @@ http://localhost:5000/api/faqs?lang=te
 ]
 
 ```
-
-
 ### GET api/faqs: Fetch all FAQs.
+#### Discription : This endpoint retrieves all FAQs in English. If the questions and answers are in a different language, they are automatically translated into English. If they are already in English, no changes are made. The API response returns all FAQs with WYSIWYG-added HTML and formatting removed for better readability.
 #### URL
 ```json
 http://localhost:5000/api/faqs/
@@ -123,7 +130,7 @@ http://localhost:5000/api/faqs/
 ```json
 http://localhost:5000/api/faqs/
 ```
-#### Response:
+#### Request:
 ```json
 {
     "question":"what are parameters?",
@@ -137,3 +144,29 @@ http://localhost:5000/api/faqs/
     "message": "FAQ added successfully"
 }
 ```
+
+
+### GET api/faqs/add_faq : get FAQs without WYSIWYG formating.
+#### URL
+```json
+http://localhost:5000/api/faqs/add_faq
+```
+
+#### View
+![Alt text](/static/add_faq_with_WYSIWYG.png)
+
+![Alt text](/static/add_faq.png)
+
+
+### GET api/faqs/get_faqs_WYSIWYG : get FAQs without WYSIWYG formating.
+#### URL
+```json
+http://localhost:5000/api/faqs/get_faqs_WYSIWYG
+```
+
+#### View
+![Alt text](/static/get_faqs_with_WYSIWYG.png)
+
+![Alt text](/static/get_faqs_WYSIWYG.png)
+
+
