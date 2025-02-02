@@ -1,4 +1,9 @@
 version: '3.8'
+
+networks:
+  app_network:
+    driver: bridge
+
 services:
   app:
     build: .
@@ -10,10 +15,19 @@ services:
       - FLASK_APP=app.py
       - FLASK_ENV=development
     env_file:
-      - .env # Automatically loads the .env file
+      - .env  
     depends_on:
       - redis
+    networks:
+      - app_network  
+    container_name: app 
+  
   redis:
     image: "redis:alpine"
     ports:
       - "6379:6379"
+    networks:
+      - app_network  
+    container_name: redis 
+
+name: Multilingual_FAQ_System_with_Flask
