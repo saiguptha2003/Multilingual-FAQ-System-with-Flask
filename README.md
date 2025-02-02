@@ -9,6 +9,7 @@
 ##### Multilingual Support: Automatically translate FAQ questions and## answers into multiple languages.
 ##### SQLAlchemy Integration: Store FAQ data in a relational database using SQLAlchemy.
 ##### REST API: Expose APIs to fetch FAQ data and handle translations.
+##### Redis Cache: It Helps to cache the frequently used keys over the values
 
 
 ## Technologies Used
@@ -169,4 +170,11 @@ http://localhost:5000/api/faqs/get_faqs_WYSIWYG
 
 ![Alt text](/static/get_faqs_WYSIWYG.png)
 
+## Cache Imformation
+### Implementation
+1. create a cache key : faqs_<lang> ; lang can be any bi,hi,te,be,en
+2. create a data count key : faqs_count_<lang> ; lang can be any bi,hi,te,be,en
+3. get them from redis 
+4. if count of faqs_count_<lang> is equal to db.count then returns the cached list of faqs 
+5. if not then process the translations and returns the list and update the redis
 
