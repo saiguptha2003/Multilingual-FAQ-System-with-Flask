@@ -2,11 +2,11 @@
 
 ## This is a python based flask Application 
 ## flask is a python backend framework
---
+---
 ####  Note: I made the .env file public to help avoid any difficulties when others clone the repository. It could be challenging for users to add their own .env file from another source, so I made it available. I have no issues with it being public, and I hope this makes the process easier for everyone.
 
 #### For routes and details please visit http://localhost:5000/ for api details
---
+---
 ## Assumptions:
 #### Language Scalability via Translation API:
 
@@ -17,7 +17,7 @@
 
 #### WYSIWYG Formatting - Summernote:
 ##### Instead of CKEditor, Summernote was selected for WYSIWYG (What You See Is What You Get) text formatting. Summernote was chosen because of its lightweight nature, ease of use, and compatibility with the application’s requirements, offering a similar functionality to CKEditor with a smaller footprint.
---
+---
 
 ## Features
 ##### FAQ Management: Add FAQ entries.
@@ -26,7 +26,7 @@
 ##### REST API: Expose APIs to fetch FAQ data and handle translations.
 ##### Redis Cache: It Helps to cache the frequently used keys over the values
 
---
+---
 
 ## Technologies Used
 ### Flask: A lightweight WSGI web application framework for Python.
@@ -35,7 +35,7 @@
 ##### JSON: Data exchange format for translating FAQ content.
 ##### Redis: Data caching server side
 ##### Docker : Container based development
---
+---
 
 ## Installation
 ### Clone The Repository 
@@ -75,7 +75,7 @@ python app.py
 ```bash
 docker-compose up --build -d
 ```
---
+---
 
 ## API Endpoints
 
@@ -89,7 +89,7 @@ docker-compose up --build -d
 ###### Get the WYSIWYG text rendered with drop down of question and answer
 #### Template POST FORM apifaqs/add_faq         
 ###### Form for adding faq
---
+---
 
 ## Database Schema
 #### The application uses SQLAlchemy for database interaction. The FAQ table schema is as follows:
@@ -98,7 +98,7 @@ docker-compose up --build -d
 ##### question: The FAQ question (string).
 ##### answer: The FAQ answer (text)
 
---
+---
 
 ## Requests and Response
 
@@ -191,7 +191,7 @@ http://localhost:5000/api/faqs/get_faqs_WYSIWYG
 
 ![Alt text](/static/get_faqs_WYSIWYG.png)
 
---
+---
 
 ## Cache Imformation
 ### Implementation
@@ -201,7 +201,7 @@ http://localhost:5000/api/faqs/get_faqs_WYSIWYG
 4. if count of faqs_count_<lang> is equal to db.count then returns the cached list of faqs 
 5. if not then process the translations and returns the list and update the redis
 
---
+----
 
 ## Testing 
 
@@ -209,7 +209,7 @@ http://localhost:5000/api/faqs/get_faqs_WYSIWYG
 cd app
 pytest test.py
 ```
-
+---
 ## Contact
 ### V D Panduranga Sai Guptha 
 ### 8688670712
